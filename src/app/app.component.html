@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <form #dataadd="ngForm">
+    <label for="fname">Userame:</label><br>
+    <input type="text" name="username" ngModel ><br>
+    <label for="lname" >Firstname:</label><br>
+    <input type="text" name="firstname" ngModel ><br><br>
+    <label for="lname">Lastname:</label><br>
+    <input type="text" name="lastname" ngModel ><br><br>
+    <button (click)="adddata(dataadd.value);" >Add</button>
+  </form>            
+
+  <br><br>
+ 
+<div>
+  <table style="width:100%">
+  <tr>
+   
+    <th>UserName</th>
+    <th>FirstName</th>
+    <th>LastName </th>
+    <th>DELETE</th>
+    <th>UPDATE</th>
+  </tr>
+
+  <tr *ngFor="let getadd Of getarrytable">
+   <td><input type="text" name="getadd.username" [(ngModel)]="getadd.username"></td>
+   <td> <input type="text" name="getadd.firstname" [(ngModel)]="getadd.firstname"></td>
+   <td><input  type="text" name="getadd.lastname" [(ngModel)]="getadd.lastname"></td>
+   <td><button type="button" (click)="deletepeople(getadd._id)" class="btn btn-danger">DELETE</button></td>
+   <td>
+     <button type="button" (click)="updatepeople(getadd)" class="btn btn-primary" data-toggle="modal" data-target="#update">UPDATE</button></td>
+
+    </tr>
+ 
+</table>
+
+
+</div>
+
+
+</div>
+
+</body>
+</html>
